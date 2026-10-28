@@ -1,0 +1,6 @@
+bin/
+obj/
+*.user
+.vs/
+# Each builder's own Silksong folder (see README)
+GameDir.props

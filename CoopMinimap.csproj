@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <Nullable>enable</Nullable>
+        <AssemblyName>CoopMinimap</AssemblyName>
+        <RootNamespace>CoopMinimap</RootNamespace>
+        <Version>0.6.3</Version>
+        <GenerateDocumentationFile>false</GenerateDocumentationFile>
+        <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+    </PropertyGroup>
+
+    <!-- Where Silksong is installed (with BepInEx, SSMP and Interactive Map): pass -p:GameDir="...", or set it in a
+         GameDir.props next to this file, which git ignores (see README) -->
+    <Import Project="GameDir.props" Condition="Exists('GameDir.props')" />
+
+    <PropertyGroup>
+        <GameDir Condition="'$(GameDir)' == ''">C:\Program Files (x86)\Steam\steamapps\common\Hollow Knight Silksong</GameDir>
+        <Managed>$(GameDir)\Hollow Knight Silksong_Data\Managed</Managed>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Reference Include="SSMP"><HintPath>$(GameDir)\BepInEx\plugins\SSMP\SSMP.dll</HintPath><Private>false</Private></Reference>
+        <Reference Include="SilkSongMapInteractive"><HintPath>$(GameDir)\BepInEx\plugins\InteractiveMap\SilkSongMapInteractive.dll</HintPath><Private>false</Private></Reference>
+        <Reference Include="Assembly-CSharp"><HintPath>$(Managed)\Assembly-CSharp.dll</HintPath><Private>false</Private></Reference>
+        <Reference Include="TeamCherry.Localization"><HintPath>$(Managed)\TeamCherry.Localization.dll</HintPath><Private>false</Private></Reference>
+        <Reference Include="UnityEngine"><HintPath>$(Managed)\UnityEngine.dll</HintPath><Private>false</Private></Reference>
+        <Reference Include="UnityEngine.CoreModule"><HintPath>$(Managed)\UnityEngine.CoreModule.dll</HintPath><Private>false</Private></Reference>
+        <Reference Include="UnityEngine.UI"><HintPath>$(Managed)\UnityEngine.UI.dll</HintPath><Private>false</Private></Reference>
+        <Reference Include="PlayMaker"><HintPath>$(Managed)\PlayMaker.dll</HintPath><Private>false</Private></Reference>
+        <Reference Include="BepInEx"><HintPath>$(GameDir)\BepInEx\core\BepInEx.dll</HintPath><Private>false</Private></Reference>
+        <Reference Include="0Harmony"><HintPath>$(GameDir)\BepInEx\core\0Harmony.dll</HintPath><Private>false</Private></Reference>
+        <Reference Include="UnityEngine.TextRenderingModule"><HintPath>$(Managed)\UnityEngine.TextRenderingModule.dll</HintPath><Private>false</Private></Reference>
+        <Reference Include="UnityEngine.InputLegacyModule"><HintPath>$(Managed)\UnityEngine.InputLegacyModule.dll</HintPath><Private>false</Private></Reference>
+        <Reference Include="UnityEngine.Physics2DModule"><HintPath>$(Managed)\UnityEngine.Physics2DModule.dll</HintPath><Private>false</Private></Reference>
+        <Reference Include="UnityEngine.UIModule"><HintPath>$(Managed)\UnityEngine.UIModule.dll</HintPath><Private>false</Private></Reference>
+    </ItemGroup>
+
+</Project>
